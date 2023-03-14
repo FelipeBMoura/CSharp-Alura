@@ -39,4 +39,13 @@ Console.WriteLine("Saldo do André = " + contaDoAndre.saldo);
 
 Console.WriteLine("Saldo da Maria = " + contaDaMaria.saldo);
 
+ContaCorrente contaDoPedro = new ContaCorrente();
+Console.WriteLine(contaDoPedro.titular);
+Console.WriteLine(contaDoPedro.saldo);
+Console.WriteLine(contaDoPedro.numero_agencia);
+Console.WriteLine(contaDoPedro.conta);
+
+
+
+
 Console.ReadLine();
