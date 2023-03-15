@@ -1,16 +1,18 @@
 ﻿using System;
+using bytebank.Titular
 
-namespace bytebank
+namespace bytebank.Contas
 {
 
 	public class ContaCorrente
 	{
 		public int numero_agencia;
-        public string conta;
-        public string titular;
+        public string conta;      
         public double saldo=100;
 
-		public void depositar(double valor)
+		public Cliente titular;
+
+        public void depositar(double valor)
 		{
 			this.saldo += valor;
 		}
