@@ -75,11 +75,26 @@ using bytebank.Titular;
 
 //Console.WriteLine(conta2.titular.nome);
 
-ContaCorrente conta3 = new ContaCorrente();
-conta3.SetSaldo(200);
-conta3.Conta = "1011-H";
-Console.WriteLine(conta3.GetSaldo());
-Console.WriteLine(conta3.Numero_agencia);
-Console.WriteLine(conta3.Conta);
+//ContaCorrente conta3 = new ContaCorrente();
+//conta3.SetSaldo(200);
+//conta3.Conta = "1011-H";
+//Console.WriteLine(conta3.GetSaldo());
+//Console.WriteLine(conta3.Numero_agencia);
+//Console.WriteLine(conta3.Conta);
+
+//ContaCorrente conta4 = new ContaCorrente(18, "1010-X");
+//conta4.SetSaldo(500);
+//conta4.Titular = new Cliente();
+//Console.WriteLine(conta4.GetSaldo());
+//Console.WriteLine(conta4.Numero_agencia);
+
+ContaCorrente conta5 = new ContaCorrente(283, "1234-X");
+Console.WriteLine(ContaCorrente.TotalDeContasCriadas);
+
+ContaCorrente conta6 = new ContaCorrente(284, "9874-Z");
+Console.WriteLine(ContaCorrente.TotalDeContasCriadas);
+
+ContaCorrente conta7 = new ContaCorrente(285, "1111-Z");
+Console.WriteLine(ContaCorrente.TotalDeContasCriadas);
 
 Console.ReadLine();
