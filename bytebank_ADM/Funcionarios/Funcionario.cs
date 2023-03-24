@@ -6,16 +6,24 @@ using System.Threading.Tasks;
 
 namespace bytebank_ADM.Funcionarios
 {
-    public class Funcionario
+    public abstract class Funcionario
     {
         public string Nome { get; set; }
-        public string Cpf { get; set; }
-        public double Salario { get; set; }
+        public string Cpf { get; private set; }
+        public double Salario { get; protected set; } // protected é visível na própria classe e nas subclasses
+        public static int TotalDeFuncionarios { get; private set; }
 
-        public virtual double GetBonificacao()
+        public abstract double GetBonificacao(); // O abstract gera obrigação de implementar este método
+
+        public Funcionario(string cpf, double salario)
         {
-            return this.Salario * 0.1;
+            this.Salario = salario;
+            this.Cpf = cpf;
+            TotalDeFuncionarios++;
+            // Console.WriteLine("Criando um funcionário.");
         }
+
+        public abstract void AumentarSalario(); // O abstract gera obrigação de implementar este método
 
     }
 }

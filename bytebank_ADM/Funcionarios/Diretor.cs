@@ -10,7 +10,18 @@ namespace bytebank_ADM.Funcionarios
     {
         public override double GetBonificacao()
         {
-            return this.Salario + base.GetBonificacao();
+            return this.Salario * 0.5;
+        }
+
+        public Diretor(string cpf):base(cpf, 5000) // base permite acessar parâmetros da superclasse
+        {
+
+            // Console.WriteLine("Criando um diretor.");
+        }
+
+        public override void AumentarSalario()
+        {
+            this.Salario *= 1.15;
         }
     }
 }
