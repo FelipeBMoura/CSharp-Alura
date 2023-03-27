@@ -24,6 +24,6 @@ namespace bytebank_ADM.Funcionarios
         }
 
         public abstract void AumentarSalario(); // O abstract gera obrigação de implementar este método
-
+        
     }
 }

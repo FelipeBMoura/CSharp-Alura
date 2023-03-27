@@ -1,4 +1,5 @@
-﻿using System;
+﻿using bytebank_ADM.SistemaInterno;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace bytebank_ADM.Funcionarios
 {
-    public class GerenteDeContas : Funcionario
+    public class GerenteDeContas : Autenticavel
     {
         public GerenteDeContas(string cpf) : base(cpf, 4000) // base permite acessar parâmetros da superclasse
         {
@@ -20,6 +21,11 @@ namespace bytebank_ADM.Funcionarios
         public override void AumentarSalario()
         {
             this.Salario *= 1.05;
+        }
+
+        public override bool Autenticar(string senha)
+        {
+            return this.Senha == senha;
         }
     }
 }
