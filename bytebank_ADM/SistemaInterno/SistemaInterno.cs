@@ -1,4 +1,5 @@
 ﻿using bytebank_ADM.Funcionarios;
+using bytebank_ADM.Parceria;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace bytebank_ADM.SistemaInterno
 {
     public class SistemaInterno
     {
-        public bool Logar(Autenticavel funcionario, string Senha)
+        public bool Logar(IAutenticavel funcionario, string Senha)
         {
             bool usuarioAutenticado = funcionario.Autenticar(Senha);
             if(usuarioAutenticado)
@@ -22,6 +23,6 @@ namespace bytebank_ADM.SistemaInterno
                 Console.WriteLine("Senha incorreta!");
                 return false;
             }
-        }
+        }                
     }
 }
