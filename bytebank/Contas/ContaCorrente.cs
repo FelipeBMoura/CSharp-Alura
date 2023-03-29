@@ -8,14 +8,18 @@ namespace bytebank.Contas
 	{
         public static int TotalDeContasCriadas { get; private set; }
 
+		public static float TaxaOperacao { get; private set; }
+
+
+
         private int numero_agencia;
 
 		public int Numero_agencia
 		{
-			get { return this.numero_agencia; }
+			get { return numero_agencia; }
 			private set {
 				if (value > 0)
-					this.numero_agencia = value;
+					numero_agencia = value;
 			}
 		}
         // private string? conta;
@@ -77,8 +81,18 @@ namespace bytebank.Contas
 
         public ContaCorrente(int numero_agencia, string numero_conta)
         {
-			this.numero_agencia = numero_agencia;
-			this.Conta = numero_conta;
+			Numero_agencia = numero_agencia;
+			Conta = numero_conta;
+
+			try
+			{
+                TaxaOperacao = 30 / TotalDeContasCriadas;
+            }
+			catch(DivideByZeroException) 
+			{
+                Console.WriteLine("Ocorreu um erro! Não é possível fazer uma divisão por zero!");
+            }
+			
 			TotalDeContasCriadas++;
         }
     }
