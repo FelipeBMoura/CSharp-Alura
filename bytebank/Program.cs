@@ -1,17 +1,17 @@
 ﻿using bytebank;
 using bytebank.Contas;
 using bytebank.Titular;
+using System.Numerics;
 
-
+/*
 try
 {
-    ContaCorrente conta1 = new ContaCorrente(0, "1234-X");
-    /*
+    ContaCorrente conta1 = new ContaCorrente(0, "1234-X");    
     conta1.sacar(50);
     Console.WriteLine(conta1.GetSaldo());
     conta1.sacar(150);
     Console.WriteLine(conta1.GetSaldo());
-    */
+    
 }
 catch (ArgumentException ex)
 {
@@ -25,3 +25,21 @@ catch(SaldoInsuficienteException ex)
     Console.WriteLine("Operação negada! Saldo insuficiente!");
     Console.WriteLine(ex.Message);
 }
+*/
+
+LeitorDeArquivo leitor = new LeitorDeArquivo("contas.txt");
+
+try
+{    
+    leitor.LerProximaLinha();
+    leitor.LerProximaLinha();
+}
+catch (IOException)
+{
+    Console.WriteLine("Leitura de arquivo interrompida");
+}
+finally
+{
+    leitor.Fechar();
+}
+

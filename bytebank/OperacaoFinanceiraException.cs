@@ -13,7 +13,7 @@ namespace bytebank
 
         }
 
-        public OperacaoFinanceiraException(string mensagem, Exception excessaoInterna) : base(mensagem, excecaoInterna)
+        public OperacaoFinanceiraException(string mensagem, Exception excessaoInterna) //: base(mensagem, excecaoInterna)
         {
 
         }
