@@ -4,15 +4,16 @@
     {
         static void Main(string[] args)
         {
-            Imposto iss = new ISS();
-            Imposto icms = new ICMS();
+           CalculadorDeDescontos calculador = new CalculadorDeDescontos();
 
-            Orcamento orcamento = new Orcamento(500.0);
+            Orcamento orcamento = new Orcamento(500);
+            orcamento.AdicionaItem(new Item("CANETA", 250));
+            orcamento.AdicionaItem(new Item("LAPIS", 250));
 
-            CalculadorDeImpostos calculador = new CalculadorDeImpostos();
+            double desconto = calculador.Calcula(orcamento);
 
-            calculador.RealizaCalculo(orcamento, icms);
-            calculador.RealizaCalculo(orcamento, iss);
+            Console.WriteLine(desconto);
+
         }
     }
 }
