@@ -8,7 +8,7 @@ namespace CursoDesignPatterns
 {
     internal class ISS : Imposto
     {
-        public double calcula(Orcamento orcamento)
+        public double Calcula(Orcamento orcamento)
         {
             return orcamento.Valor * 0.06;
         }

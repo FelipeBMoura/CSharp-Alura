@@ -8,6 +8,6 @@ namespace CursoDesignPatterns
 {
     public interface Imposto
     {
-        double calcula(Orcamento orcamento);
+        double Calcula(Orcamento orcamento);
     }
 }

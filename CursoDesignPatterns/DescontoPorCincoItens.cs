@@ -8,7 +8,7 @@ namespace CursoDesignPatterns
 {
     public class DescontoPorCincoItens : Desconto
     {
-        public Desconto Proximo {get; set;}
+        public Desconto Proximo { get; set; }
         public double Desconta(Orcamento orcamento)
         {
             if (orcamento.Itens.Count > 5)
