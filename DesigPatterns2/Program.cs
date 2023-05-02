@@ -1,5 +1,7 @@
-﻿using DesigPatterns2.Cap1;
+﻿using DesigPatterns2;
+using DesigPatterns2.Cap1;
 using DesigPatterns2.Cap2;
+using DesigPatterns2.Cap3;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -9,20 +11,18 @@ namespace DesignPatterns2
     {
         static void Main(string[] args)
         {
-            NotasMusicais notas = new NotasMusicais();
+            Historico historico = new Historico();
 
-            IList<INota> musica = new List<INota>()
-            {
-                notas.Pega("do"),
-                notas.Pega("re"),
-                notas.Pega("mi"),
-                notas.Pega("fa"),
-                notas.Pega("fa"),
-                notas.Pega("fa"),
-            };
+            Contrato c = new Contrato(DateTime.Now, "victor", TipoContrato.Novo);
+            historico.Adiciona(c.SalvaEstado());
 
-            Piano piano = new Piano();
-            piano.Toca(musica);
+            c.Avanca();
+            historico.Adiciona(c.SalvaEstado());
+
+            c.Avanca();
+            historico.Adiciona(c.SalvaEstado());
+
+            Console.WriteLine(historico.Pega(0).Contrato.Tipo);
         }
     }
 }
