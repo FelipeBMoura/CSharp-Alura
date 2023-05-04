@@ -3,6 +3,7 @@ using DesigPatterns2.Cap1;
 using DesigPatterns2.Cap2;
 using DesigPatterns2.Cap3;
 using DesigPatterns2.Cap4;
+using DesigPatterns2.Cap5;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -17,6 +18,10 @@ namespace DesignPatterns2
             IExpressao soma = new Soma(esquerda, direita);            
 
             Console.WriteLine(soma.Avalia());
+
+            ImpressoraVisitor impressora = new ImpressoraVisitor();
+            soma.Aceita(impressora);
+
         }
     }
 }
