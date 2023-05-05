@@ -10,7 +10,7 @@ namespace DesigPatterns2.Cap4
     class Soma : IExpressao
     {
         public IExpressao Esquerda { get; private set; }
-        public IExpressao Direita { get; private set; };
+        public IExpressao Direita { get; private set; }
 
         public Soma(IExpressao esquerda, IExpressao direita)
         {
