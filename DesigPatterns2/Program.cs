@@ -6,8 +6,10 @@ using DesigPatterns2.Cap4;
 using DesigPatterns2.Cap5;
 using DesigPatterns2.Cap6;
 using DesigPatterns2.Cap7;
+using DesigPatterns2.Cap8;
 using System.Data;
 using System.Data.SqlClient;
+using System.Xml.Serialization;
 
 namespace DesignPatterns2
 {
@@ -15,16 +17,18 @@ namespace DesignPatterns2
     {
         static void Main(string[] args)
         {
-            FilaDeTrabalho fila = new FilaDeTrabalho();
-            Pedido pedido1 = new Pedido("Mauricio", 100.0);
-            Pedido pedido2 = new Pedido("Marcelo", 200.0);
-            
-            fila.Adiciona(new PagaPedido(pedido1));
-            fila.Adiciona(new PagaPedido(pedido2));
+            Cliente cliente = new Cliente();
 
-            fila.Adiciona(new FinalizaPedido(pedido1));
+            cliente.nome = "victor";
+            cliente.Endereco = "Rua vergueiro";
+            cliente.DataDeNascimento = DateTime.Now;
 
-            fila.Processa();
+            XmlSerializer xmlSerializer = new XmlSerializer(cliente.GetType());
+            StringWriter writer = new StringWriter();
+            xmlSerializer.Serialize(writer, cliente);
+            String xml = new GeradorDeXml().GeraXml(cliente);
+
+            Console.WriteLine(xml);
         }
     }
 }
