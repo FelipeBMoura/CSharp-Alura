@@ -7,6 +7,7 @@ using DesigPatterns2.Cap5;
 using DesigPatterns2.Cap6;
 using DesigPatterns2.Cap7;
 using DesigPatterns2.Cap8;
+using DesigPatterns2.Cap9;
 using System.Data;
 using System.Data.SqlClient;
 using System.Xml.Serialization;
@@ -17,18 +18,13 @@ namespace DesignPatterns2
     {
         static void Main(string[] args)
         {
-            Cliente cliente = new Cliente();
+            String cpf = "1234";
 
-            cliente.nome = "victor";
-            cliente.Endereco = "Rua vergueiro";
-            cliente.DataDeNascimento = DateTime.Now;
+            EmpresaFacade facade = new EmpresaFacadeSingleton().Instancia;
+            Cliente cliente = facade.BuscaCliente(cpf);
 
-            XmlSerializer xmlSerializer = new XmlSerializer(cliente.GetType());
-            StringWriter writer = new StringWriter();
-            xmlSerializer.Serialize(writer, cliente);
-            String xml = new GeradorDeXml().GeraXml(cliente);
-
-            Console.WriteLine(xml);
+            facade.CriaFatura(cliente, 5000);
+            facade.GeraCobranca(tipo.Boleto, fatura);
         }
     }
 }
