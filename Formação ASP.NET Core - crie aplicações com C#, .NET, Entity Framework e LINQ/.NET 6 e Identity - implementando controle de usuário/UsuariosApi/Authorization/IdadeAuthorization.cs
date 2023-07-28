@@ -1,7 +1,5 @@
-﻿using System;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
-using System.Threading.Tasks;
 
 namespace UsuariosApi.Authorization
 {
